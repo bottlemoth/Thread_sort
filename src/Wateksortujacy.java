@@ -12,7 +12,7 @@ public class Wateksortujacy extends Thread {
     public void run() {
 
         this.posortowanaTablica = sortuj(tab);
-        System.out.println(getName()+Arrays.toString(tab));
+        System.out.println(getName()+Arrays.toString(this.posortowanaTablica));
     }
 
     private int[] sortuj(int[] tab) {
@@ -31,7 +31,7 @@ public class Wateksortujacy extends Thread {
     return tab;
     }
     public int[] getposortowanaTablica(){
-        return posortowanaTablica;
+        return this.posortowanaTablica;
     }
 
 

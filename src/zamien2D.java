@@ -1,15 +1,27 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class zamien2D {
     public static int[][] zamien(int[] arr, int row, int col){
-        if(arr.length!=row*col){
-            throw new IllegalArgumentException("Nieprawidłowe wymiary");
-        }
-        int[][] result = new int[row][col];
-        for(int i=0;i<row;i++){
-            for(int j=0;j<col;j++){
-                result[i][j] = arr[i*col+j];
 
+        List<int[]> result = new ArrayList<>();
+
+        for(int i=0;i<row;i++){
+            if(arr.length-(i*col) < col){
+                int[] temp = Arrays.copyOfRange(arr,i*col,arr.length);
+                result.add(temp);
+                break;
             }
+            int[] temp = Arrays.copyOfRange(arr,i*col,i*col+col);
+            result.add(temp);
         }
-        return result;
+
+        return result.toArray(new int[0][]);
     }
 }
+/*
+0,3
+4,7
+8,11
+ */

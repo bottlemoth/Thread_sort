@@ -5,8 +5,8 @@ import java.util.Random;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-        int drugi_wymiar = 6;
-        int[] numbers = new int[20];
+            int drugi_wymiar = 13;
+        int[] numbers = new int[1000];
         Random random = new Random();
         System.out.println(numbers.length);
         for (int i = 0; i < numbers.length; i++) {
@@ -21,6 +21,7 @@ public class Main {
         System.out.println((Arrays.deepToString(result)));
         List<int[]> result2 = new ArrayList<>();
         int[] wynik;
+        List<Integer> wynik2 = new ArrayList<>();
         for (int[] chunk : result) {
             Wateksortujacy watek = new Wateksortujacy(chunk);
             watek.start();
@@ -31,14 +32,11 @@ public class Main {
                 throw new RuntimeException(e);
             }
         }
-
-        for (int i = 0; i <= result2.size()-1; i+=2) {
-            //System.out.println(i);
-            //System.out.println(Arrays.toString(result2.get(i)));
-            wynik = Merge.merge(result2.get(i),result2.get(i+1));
-            System.out.println(Arrays.toString(wynik));
+        wynik = result2.getFirst();
+        for (int[] ints : result2) {
+            wynik = Merge.merge(wynik, ints);
         }
-
+        System.out.println((Arrays.toString(wynik)));
     }
 
 

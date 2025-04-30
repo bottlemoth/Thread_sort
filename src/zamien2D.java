@@ -20,8 +20,4 @@ public class zamien2D {
         return result.toArray(new int[0][]);
     }
 }
-/*
-0,3
-4,7
-8,11
- */
+
